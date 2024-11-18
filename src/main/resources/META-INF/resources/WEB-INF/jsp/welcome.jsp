@@ -72,6 +72,7 @@
     <div class="welcome-container">
         <h1>WELOCOME</h1>
         <div>${name}</div>
+        <a href="list-todos">Manage</a> your todos
     </div>
 </body>
 </html>
