@@ -2,9 +2,22 @@ package com.in28minutes.springboot.myfirstwebapp.todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+// JPA
+// BEAN -> DB
+
+@Entity
 public class Todo {
+	
+	public Todo() {
+		
+	}
 
 	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
 		super();
@@ -14,10 +27,15 @@ public class Todo {
 		this.targetDate = targetDate;
 		this.done = done;
 	}
-
+	
+	@Id
+	@GeneratedValue
 	private int id;
+	
+	@Column(name="username")
 	private String username;
 	
+	@NotNull(message = "필수 값입니다.")
 	@Size(min=10, message="Enter at least 10 character")
 	private String description;
 	
